@@ -1,0 +1,8 @@
+Bailey,12,hvid,true
+Felix,3,sort,true
+Whiskers,16,plettet,false
+Ib,5,stribet,false
+Oliver,4,rød,false
+Bella,10,hvid,true
+Alex,9,sort,false
+Gizmo,5,stribet,false
