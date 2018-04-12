@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="da"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MyArrayListWithBugs.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MyArrayListWithBugs&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">myarraylistwithbugs</a> &gt; <span class="el_source">MyArrayListWithBugs.java</span></div><h1>MyArrayListWithBugs.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package myarraylistwithbugs;
+
+public class MyArrayListWithBugs {
+
+    private static Cat[] list;
+    int nextFree;
+
+    // Creates a new empty list
+<span class="fc" id="L14">    public MyArrayListWithBugs() {</span>
+<span class="fc" id="L15">        list = new Cat[5];</span>
+<span class="fc" id="L16">        nextFree = 0;</span>
+<span class="fc" id="L17">    }</span>
+
+    // Inserts object at the end of list
+    public void add(Cat o) {
+        // check capacity
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (list.length &lt;= nextFree) {</span>
+<span class="fc" id="L23">            list = getLongerList();</span>
+        }
+
+<span class="fc" id="L26">        list[nextFree] = o;</span>
+<span class="fc" id="L27">        nextFree++;</span>
+<span class="fc" id="L28">    }</span>
+
+    // Returns the number of objects in the list
+    public int size() {
+<span class="fc" id="L32">        return nextFree;</span>
+    }
+
+    // Returns a reference to the object at position index
+    // Throws IndexOutOfBoundsException
+    public Cat get(int index) {
+<span class="pc bpc" id="L38" title="1 of 4 branches missed.">        if (index &lt; 0 || nextFree &lt; index) { //Der skal ikke være noget = tegn</span>
+<span class="fc" id="L39">            throw new IndexOutOfBoundsException(&quot;Error (get): Invalid index&quot;</span>
+                    + index);
+        }
+
+<span class="fc" id="L43">        return list[index];</span>
+    }
+
+    // Inserts object at position index
+    // Throws IndexOutOfBoundsException
+    public void add(int index, Cat o) {
+<span class="pc bpc" id="L49" title="2 of 4 branches missed.">        if (index &lt; 0 || nextFree &lt; index) {</span>
+<span class="nc" id="L50">            throw new IndexOutOfBoundsException(&quot;Error (add): Invalid index&quot;</span>
+                    + index);
+        }
+
+        // check capacity
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        if (list.length &lt;= nextFree) {</span>
+<span class="nc" id="L56">            list = getLongerList();</span>
+        }
+
+        // Shift elements upwards to make position index free
+        // Start with last element and move backwards
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        for (int i = (nextFree - 1); i &gt;= index; i--) { </span>
+<span class="fc" id="L62">            System.out.println(&quot;Helloo &quot; + list[i+1] + &quot; and list[i] &quot; + list[i]);</span>
+<span class="fc" id="L63">            list[i - 1] = list[i];</span>
+            
+        }
+
+<span class="fc" id="L67">        list[index] = o;</span>
+<span class="fc" id="L68">    }</span>
+
+    // Removes object at position index
+    // Returns a reference to the removed object
+    // Throws IndexOutOfBoundsException
+    public Cat remove(int index) { //Der er nok noget galt her, find ud af hvad 
+<span class="pc bpc" id="L74" title="1 of 4 branches missed.">        if (index &lt; 0 || nextFree &lt;= index) {</span>
+<span class="fc" id="L75">            throw new IndexOutOfBoundsException(&quot;Error (remove): Invalid index&quot;</span>
+                    + index);
+        }
+
+        // Shift elements down to fill indexed position
+        // Start with first element
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">        for (int i = index; i &lt; nextFree - 1; i++) {</span>
+<span class="nc" id="L82">            list[i] = list[i + 1];</span>
+        }
+<span class="fc" id="L84">        nextFree--;</span>
+
+<span class="fc" id="L86">        return list[index];</span>
+
+    }
+
+    //============== private helper methods ==========
+    // create a list with double capacity and
+    // copy all elements to this
+    private Cat[] getLongerList() {
+<span class="fc" id="L94">        Cat[] tempList = new Cat[list.length * 2];</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        for (int i = 0; i &lt; list.length; i++) {</span>
+<span class="fc" id="L96">            tempList[i] = list[i];</span>
+        }
+<span class="fc" id="L98">        return tempList;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
