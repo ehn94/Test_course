@@ -1,4 +1,9 @@
 # Cucumber, Pairwise, Performance Technical Experiments ("spike")
+
+Jeg har til denne her opgave brugt en af de første opgaver vi lavede, trekants opgaven. 
+Det vil sige at i dette tilfælde opererer vi aller nederst i testpyramiden, Unit test. 
+Men Cucumber kan bruges på alle lag.
+
 ### Hvad er Cucumber
 Cucumber er et testværktøj der bruges til BDD. 
 Det definerer adfærd i applikationen ved at bruge helt simpel engelsk tekst. Dette er defineret ved et sprog kaldet Gherkin. 
