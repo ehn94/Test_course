@@ -1,0 +1,34 @@
+.body{
+    padding-top: 50px;
+}
+
+.searchForm label{
+    font-weight: bold;    
+}
+
+#errorText{
+    font-weight: bold;
+    color: red; 
+}
+
+.dataTable {
+    margin-top: 10px;
+    width: 80%;
+}
+
+.back{
+    background-color: #008CBA;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    margin: 20px;
+    cursor: pointer;
+}

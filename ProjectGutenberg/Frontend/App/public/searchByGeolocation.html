@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Site</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./Stylesheets/index.css">
+    <script src="./Scripts/Consumer.js"></script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron">
+        <h2>Find books that mentions a city in vicinity of the given geolocation</h2>
+    </div>
+<form class="searchForm" onchange="fromGeo()">
+    <label id="latitude">Latitude: </label>
+    <input for="latitude" name="latitudeInput" id="latitudeInput" type="number">
+    <label id="longitude">Latitude: </label>
+    <input for="longitude" name="longitudeInput" id="longitudeInput" type="number">
+</form>
+
+<p id="errorText"></p>
+<table class="dataTableGeolocation">
+    <thead>
+        <tr><th>Author</th><th>Title</th></tr>
+    </thead>
+    <tbody class="tbody">
+
+    </tbody>
+</table>
+<button type="submit" class="back" onclick="history.back(-1)" >Back</button>
+</body>

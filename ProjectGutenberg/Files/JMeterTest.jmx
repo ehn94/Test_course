@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">C:\Users\ehn19\Downloads\neo4j-jdbc-driver-3.3.0.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="API Test" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetByCity" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">ProjectGutenberg/api/api/getBookAuthorByCity/${city}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetByTitle" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">ProjectGutenberg/api/api/getCitiesByBookTitle/${title}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetByAuthor" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">ProjectGutenberg/api/api/getBookAuthorCityByAuthor/${author}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetByGeolocation" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">ProjectGutenberg/api/api/getBookCityByGeolocation/${latitude}/${longitude}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">300</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="3053931">city</stringProp>
+            <stringProp name="110371416">title</stringProp>
+            <stringProp name="-1406328437">author</stringProp>
+            <stringProp name="-1439978388">latitude</stringProp>
+            <stringProp name="137365935">longitude</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="242417208">
+              <stringProp name="-2013264328">London</stringProp>
+              <stringProp name="75173126">The Watcher, and other weird stories</stringProp>
+              <stringProp name="855276258">Jefferson, Thomas</stringProp>
+              <stringProp name="-1308145677">25.0657</stringProp>
+              <stringProp name="-963397245">55.17128</stringProp>
+            </collectionProp>
+            <collectionProp name="1575043678">
+              <stringProp name="2467463">Oslo</stringProp>
+              <stringProp name="-1328415116">Reminiscences of Tolstoy, by His Son</stringProp>
+              <stringProp name="-536220179">Poe, Edgar Allan</stringProp>
+              <stringProp name="83521232">-43.24895</stringProp>
+              <stringProp name="1049983163">-65.30505</stringProp>
+            </collectionProp>
+            <collectionProp name="152049298">
+              <stringProp name="1986302914">Berlin</stringProp>
+              <stringProp name="65341585">Carmilla</stringProp>
+              <stringProp name="2097301049">Faxian</stringProp>
+              <stringProp name="-42974763">48.20849</stringProp>
+              <stringProp name="1544647629">16.37208</stringProp>
+            </collectionProp>
+            <collectionProp name="2051451632">
+              <stringProp name="-1884315574">Chicago</stringProp>
+              <stringProp name="2116042392">A Brief History of the United States</stringProp>
+              <stringProp name="979488740">Twain, Mark</stringProp>
+              <stringProp name="150737620">-27.56056</stringProp>
+              <stringProp name="1417930548">151.95386</stringProp>
+            </collectionProp>
+            <collectionProp name="1924880967">
+              <stringProp name="80989254">Tokyo</stringProp>
+              <stringProp name="771700401">Christopher Columbus</stringProp>
+              <stringProp name="208018076">Hawthorne, Nathaniel</stringProp>
+              <stringProp name="-1099544191">50.85045</stringProp>
+              <stringProp name="271196382">4.34878</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="PostgreSQL Test" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="GetByCity" enabled="true">
+          <stringProp name="dataSource">PostgreSQL</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT book_title, author_name FROM &quot;schemaGutenberg&quot;.book AS book INNER JOIN &quot;schemaGutenberg&quot;.&quot;book-author&quot; AS book_author ON (book.id = book_author.book_id) INNER JOIN &quot;schemaGutenberg&quot;.author AS author ON (book_author.author_id = author.id) INNER JOIN &quot;schemaGutenberg&quot;.&quot;book-city&quot; AS book_city ON (book.id = book_city.book_id) INNER JOIN &quot;schemaGutenberg&quot;.city AS city ON (book_city.city_id = city.id) WHERE city.city_name = &apos;${city}&apos;;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="GetByGeolocation" enabled="true">
+          <stringProp name="dataSource">PostgreSQL</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT book_title, city_name FROM &quot;schemaGutenberg&quot;.book AS book INNER JOIN &quot;schemaGutenberg&quot;.&quot;book-city&quot; AS book_city ON (book.id = book_city.book_id) INNER JOIN  &quot;schemaGutenberg&quot;.city AS city ON (book_city.city_id = city.id) WHERE Haversine(&apos;${longitude}&apos;, &apos;${latitude}&apos;, city.longitude, city.latitude) &lt; 10;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="GetByAuthor" enabled="true">
+          <stringProp name="dataSource">PostgreSQL</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT book_title, author_name, city_name, city.longitude, city.latitude FROM &quot;schemaGutenberg&quot;.book AS book INNER JOIN &quot;schemaGutenberg&quot;.&quot;book-author&quot; AS book_author ON (book.id = book_author.book_id) INNER JOIN &quot;schemaGutenberg&quot;.author AS author ON (book_author.author_id = author.id)	INNER JOIN &quot;schemaGutenberg&quot;.&quot;book-city&quot; AS book_city ON (book.id = book_city.book_id) INNER JOIN  &quot;schemaGutenberg&quot;.city AS city ON (book_city.city_id = city.id) WHERE author.author_name = &apos;${author}&apos;;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="GetByTitle" enabled="true">
+          <stringProp name="dataSource">PostgreSQL</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">SELECT city_name, city.longitude, city.latitude FROM &quot;schemaGutenberg&quot;.city AS city INNER JOIN &quot;schemaGutenberg&quot;.&quot;book-city&quot; AS book_city ON (city.id = book_city.city_id) INNER JOIN &quot;schemaGutenberg&quot;.book AS book ON (book_city.book_id = book.id) WHERE book_title = &apos;${title}&apos;;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="3053931">city</stringProp>
+            <stringProp name="110371416">title</stringProp>
+            <stringProp name="-1406328437">author</stringProp>
+            <stringProp name="-1439978388">latitude</stringProp>
+            <stringProp name="137365935">longitude</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="242417208">
+              <stringProp name="-2013264328">London</stringProp>
+              <stringProp name="75173126">The Watcher, and other weird stories</stringProp>
+              <stringProp name="855276258">Jefferson, Thomas</stringProp>
+              <stringProp name="-1308145677">25.0657</stringProp>
+              <stringProp name="-963397245">55.17128</stringProp>
+            </collectionProp>
+            <collectionProp name="1575043678">
+              <stringProp name="2467463">Oslo</stringProp>
+              <stringProp name="-1328415116">Reminiscences of Tolstoy, by His Son</stringProp>
+              <stringProp name="-536220179">Poe, Edgar Allan</stringProp>
+              <stringProp name="83521232">-43.24895</stringProp>
+              <stringProp name="1049983163">-65.30505</stringProp>
+            </collectionProp>
+            <collectionProp name="152049298">
+              <stringProp name="1986302914">Berlin</stringProp>
+              <stringProp name="65341585">Carmilla</stringProp>
+              <stringProp name="2097301049">Faxian</stringProp>
+              <stringProp name="-42974763">48.20849</stringProp>
+              <stringProp name="1544647629">16.37208</stringProp>
+            </collectionProp>
+            <collectionProp name="2051451632">
+              <stringProp name="-1884315574">Chicago</stringProp>
+              <stringProp name="2116042392">A Brief History of the United States</stringProp>
+              <stringProp name="979488740">Twain, Mark</stringProp>
+              <stringProp name="150737620">-27.56056</stringProp>
+              <stringProp name="1417930548">151.95386</stringProp>
+            </collectionProp>
+            <collectionProp name="1924880967">
+              <stringProp name="80989254">Tokyo</stringProp>
+              <stringProp name="771700401">Christopher Columbus</stringProp>
+              <stringProp name="208018076">Hawthorne, Nathaniel</stringProp>
+              <stringProp name="-1099544191">50.85045</stringProp>
+              <stringProp name="271196382">4.34878</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">PostgreSQL</stringProp>
+          <stringProp name="dbUrl">jdbc:postgresql://localhost:5432/gutenberg</stringProp>
+          <stringProp name="driver">org.postgresql.Driver</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">1234</stringProp>
+          <stringProp name="poolMax">10</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">postgres</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Neo4j Test" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="GetByCity" enabled="true">
+          <stringProp name="dataSource">Neo4j</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">Match (c:CITY)&lt;-[:MENTION]-(b:BOOK)&lt;-[:WRITTEN]-(a:AUTHOR) 
+where c.city_name = &apos;${city}&apos; 
+return b, a;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="GetByAuthor" enabled="true">
+          <stringProp name="dataSource">Neo4j</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">Match (c:CITY)&lt;-[:MENTION]-(b:BOOK)&lt;-[:WRITTEN]-(a:AUTHOR) 
+where a.author_name = &quot;${author}&quot; 
+return b, c, a;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="GetByTitle" enabled="true">
+          <stringProp name="dataSource">Neo4j</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">Match (c:CITY)&lt;-[:MENTION]-(b:BOOK) 
+where b.book_name = &apos;${title}&apos; 
+return c, b;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="GetByGeolocation" enabled="true">
+          <stringProp name="dataSource">Neo4j</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">MATCH (c:CITY)&lt;-[:MENTION]-(b:BOOK) 
+WITH b, c, distance(point({ longitude: c.longitude, latitude: c.latitude }) , point({ longitude: ${longitude}, latitude: ${latitude} })) as dist 
+WHERE dist&lt;=10000 
+RETURN b, c;
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+          <stringProp name="dataSource">Neo4j</stringProp>
+          <stringProp name="poolMax">10</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="dbUrl">jdbc:neo4j:bolt://localhost:7687</stringProp>
+          <stringProp name="driver">org.neo4j.jdbc.Driver</stringProp>
+          <stringProp name="username">neo4j</stringProp>
+          <stringProp name="password">1234</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="3053931">city</stringProp>
+            <stringProp name="110371416">title</stringProp>
+            <stringProp name="-1406328437">author</stringProp>
+            <stringProp name="-1439978388">latitude</stringProp>
+            <stringProp name="137365935">longitude</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="242417208">
+              <stringProp name="-2013264328">London</stringProp>
+              <stringProp name="75173126">The Watcher, and other weird stories</stringProp>
+              <stringProp name="855276258">Jefferson, Thomas</stringProp>
+              <stringProp name="-1308145677">25.0657</stringProp>
+              <stringProp name="-963397245">55.17128</stringProp>
+            </collectionProp>
+            <collectionProp name="1575043678">
+              <stringProp name="2467463">Oslo</stringProp>
+              <stringProp name="-1328415116">Reminiscences of Tolstoy, by His Son</stringProp>
+              <stringProp name="-536220179">Poe, Edgar Allan</stringProp>
+              <stringProp name="83521232">-43.24895</stringProp>
+              <stringProp name="1049983163">-65.30505</stringProp>
+            </collectionProp>
+            <collectionProp name="152049298">
+              <stringProp name="1986302914">Berlin</stringProp>
+              <stringProp name="65341585">Carmilla</stringProp>
+              <stringProp name="2097301049">Faxian</stringProp>
+              <stringProp name="-42974763">48.20849</stringProp>
+              <stringProp name="1544647629">16.37208</stringProp>
+            </collectionProp>
+            <collectionProp name="2051451632">
+              <stringProp name="-1884315574">Chicago</stringProp>
+              <stringProp name="2116042392">A Brief History of the United States</stringProp>
+              <stringProp name="979488740">Twain, Mark</stringProp>
+              <stringProp name="150737620">-27.56056</stringProp>
+              <stringProp name="1417930548">151.95386</stringProp>
+            </collectionProp>
+            <collectionProp name="1924880967">
+              <stringProp name="80989254">Tokyo</stringProp>
+              <stringProp name="771700401">Christopher Columbus</stringProp>
+              <stringProp name="208018076">Hawthorne, Nathaniel</stringProp>
+              <stringProp name="-1099544191">50.85045</stringProp>
+              <stringProp name="271196382">4.34878</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">false</boolProp>
+        </UserParameters>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
